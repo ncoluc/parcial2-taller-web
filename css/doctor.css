@@ -9,11 +9,11 @@
   text-align: center;
 }
 
-.card {
-  margin-bottom: 20px;
+.card-title{
+  font-weight: bold;
 }
 
-.day {
+.div-dia {
   padding: 10px;
   margin-bottom: 20px;
 
@@ -27,29 +27,27 @@
   border-radius: 10px;
 }
 
-.turnos-color{
-}
 
-.card-columns {
+.div-card-dia {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
 }
 
 @media (max-width: 576px) {
-  .card-columns {
+  .div-card-dia {
     grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  .card-columns {
+  .div-card-dia {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .card-columns {
+  .div-card-dia {
     grid-template-columns: repeat(3, 1fr);
   }
 }
