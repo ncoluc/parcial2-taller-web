@@ -1,62 +1,4 @@
-/*
-function enviarFormulario(event) {
-    event.preventDefault();
-  
-    var nombre = document.getElementById("nombre").value;
-    var carEvent = document.getElementById("carEvent").value;
-    var mail = document.getElementById("mail").value;
-  
-    var asunto = "Registro para Evento: " + carEvent;
-    var cuerpoMail = "Hola Colu Cars Eventos, soy " + nombre + " " + "\nMi mail es: " + mail + "\nMe gustaíra reservar un lugar para el evento que seleccioné." + "\n\nSaludos!\n" + nombre + ".\n\n";
-  
-    var mailto = "mailto:colu.cars.events@unahur.edu.ar?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpoMail);
-    window.open(mailto);
-  }
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("formulario-evento");
-    if (form !== null) {
-      form.addEventListener("submit", enviarFormulario);
-    }
-  });
-  
-  function cambiarModo() {
-    const botonCambioModo = document.getElementById("botonCambioModo");
-    const temaClaro = botonCambioModo.getAttribute("value") === "true";
-    if (temaClaro) {
-      activarModoOscuro();
-      botonCambioModo.setAttribute("value", "false");
-    } else {
-      desactivarModoOscuro();
-      botonCambioModo.setAttribute("value", "true");
-    }
-  }
-  
-  function controlarModoEnLocalStorage() {
-    const modoElegidoEnLocalStorage = localStorage.getItem("modoOscuroActivadoColuCarsEvent");
-    if (modoElegidoEnLocalStorage === "true") {
-      activarModoOscuro();
-      botonCambioModo.setAttribute("value", "false");
-    } else {
-      desactivarModoOscuro();
-      botonCambioModo.setAttribute("value", "true");
-    }
-    document.querySelector("body").classList.add("visible");
-  }
-  
-  function activarModoOscuro() {
-    localStorage.setItem("modoOscuroActivadoColuCarsEvent", "true");
-    document.getElementById("style-page").href = "css/styles-dark.css";
-  }
-  
-  function desactivarModoOscuro() {
-    localStorage.setItem("modoOscuroActivadoColuCarsEvent", "false");
-    document.getElementById("style-page").href = "css/styles.css";
-  }
-
-  */
-
-//LOGINN
+//LOGIN
 
 const usuarios = [
   { username: "mirtita", password: "123", nombre: "Mirtha Legrand", rol: "paciente" },
@@ -73,13 +15,17 @@ function logear(event) {
   });
 
   if (usuarioEncontrado) {
+    localStorage.setItem("isUserLogged", "true");
+    localStorage.setItem("username", usuarioEncontrado.username);
+    localStorage.setItem("nombreUsuario", usuarioEncontrado.nombre);
+    localStorage.setItem("rol", usuarioEncontrado.rol);
     if (usuarioEncontrado.rol === "paciente") {
-      window.location.href = "paciente.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre + "&rol=" + usuarioEncontrado.rol;
+      window.location.href = "paciente.html";
     } else if (usuarioEncontrado.rol === "doctor") {
-      window.location.href = "doctor.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre + "&rol=" + usuarioEncontrado.rol;
+      window.location.href = "doctor.html";
     }
   } else {
-    alert("“Usuario incorrecto");
+    alert("Usuario incorrecto");
   }
 }
 
@@ -90,16 +36,74 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-var urlParams = new URLSearchParams(window.location.search);
-var nombreDeUsuario = urlParams.get("nombreUsuario");
-var rolUsuario = urlParams.get("rol");
-
 document.addEventListener("DOMContentLoaded", function () {
-  if (nombreDeUsuario) {
+  var isUserLogged = localStorage.getItem("isUserLogged");
+  var nombreDeUsuario = localStorage.getItem("nombreUsuario");
+  var rolUsuario = localStorage.getItem("rol");
+  var botonLogin = document.querySelector(".btn-primary.boton-login");
+  var botonLogout = document.querySelector(".btn-danger.boton-login");
+  var currentPage = window.location.pathname;
+
+  if (isUserLogged === "true" && nombreDeUsuario && rolUsuario) {
+    botonLogin.style.display = "none";
+    botonLogout.style.display = "inline-block";
     if (rolUsuario === "paciente") {
-      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a " + nombreDeUsuario + " a " + "Clinica Caseros!";
+      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a " + nombreDeUsuario + " a " + "Clinica Coluccio!";
+
+      if (currentPage === "/doctor.html") {
+        var divTurno = document.querySelector("#div-turnos-doctor");
+        divTurno.style.display = "none";
+        var h2Turnos = document.querySelector("#turnos h2");
+        h2Turnos.style.color = "red";
+        h2Turnos.textContent = "Usted no tiene acceso en esta página";
+      }
     } else if (rolUsuario === "doctor") {
-      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a Dr. " + nombreDeUsuario;
+      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a Dr. " + nombreDeUsuario + " a " + "Clinica Coluccio!";
+
+      if (currentPage === "/paciente.html") {
+        var divTabla = document.querySelector("#turnos .div-tabla");
+        var divNuevoTurno = document.querySelector("#nuevo-turno .div-nuevo-turno");
+        var h2NuevosTurnos = document.querySelector("#nuevo-turno h2");
+
+        divTabla.style.display = "none";
+        divNuevoTurno.style.display = "none";
+        h2NuevosTurnos.style.display = "none";
+
+        var h2Turnos = document.querySelector("#turnos h2");
+        h2Turnos.style.color = "red";
+        h2Turnos.textContent = "Usted no tiene acceso en esta página";
+      }
+    }
+  } else {
+    botonLogin.style.display = "inline-block";
+    botonLogout.style.display = "none";
+
+    if (currentPage === "/paciente.html") {
+      var divTabla = document.querySelector("#turnos .div-tabla");
+      var divNuevoTurno = document.querySelector("#nuevo-turno .div-nuevo-turno");
+
+      divTabla.style.display = "none";
+      divNuevoTurno.style.display = "none";
+
+      var h2Turnos = document.querySelector("#turnos h2");
+      var h2NuevosTurnos = document.querySelector("#nuevo-turno h2");
+      h2Turnos.textContent = "Inicia sesión para ver tus turnos";
+      h2NuevosTurnos.textContent = "Inicia sesión para solicituar un nuevo turno";
+    } else if (currentPage === "/doctor.html") {
+      var divTurno = document.querySelector("#div-turnos-doctor");
+      divTurno.style.display = "none";
+      var h2Turnos = document.querySelector("#turnos h2");
+
+      h2Turnos.textContent = "Inicie sesión para ver sus turnos Dr.";
     }
   }
 });
+
+function logoutUsuario() {
+  localStorage.setItem("isUserLogged", "false");
+  localStorage.removeItem("username");
+  localStorage.removeItem("nombreUsuario");
+  localStorage.removeItem("rol");
+  alert("¡Te has deslogeado. Te redireccionamos a la pagina de inicio!");
+  window.location.href = "index.html";
+}

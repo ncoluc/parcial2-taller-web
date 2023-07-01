@@ -24,7 +24,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item active">
-                <a class="nav-link" href="#inicio">Inicio</a>
+                <a class="nav-link" href="index.html">Inicio</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#turnos">Mis Turnos</a>
@@ -38,7 +38,7 @@
             </ul>
           </div>
           <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Logout</button>
           <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
         </div>
       </nav>
@@ -46,6 +46,35 @@
     <section id="inicio" class="intro-section">
       <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
       <h3>¡50 años cuidando de vos y tu familia!</h3>
+    </section>
+    <section id="modal-login">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clinica</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formulario-login" method="post" enctype="text/plain">
+                <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required />
+                </div>
+                <br />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Entrar!</button>
+              </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="turnos" class="tabla-clinica">
       <h2>Mis Turnos</h2>
@@ -60,32 +89,32 @@
             <th></th>
           </tr>
           <tr>
-            <td>2023-07-05</td>
-            <td>15:00</td>
+            <td>17-07-2023</td>
+            <td>17:00</td>
             <td>Cardiología</td>
             <td>Dr. Pérez</td>
             <td>Control de rutina</td>
             <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
           </tr>
           <tr>
-            <td>2023-07-05</td>
+            <td>19-07-2023</td>
             <td>15:00</td>
-            <td>Cardiología</td>
-            <td>Dr. Pérez</td>
+            <td>Neurología</td>
+            <td>Dr. Gomez</td>
             <td>Control de rutina</td>
             <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
           </tr>
           <tr>
-            <td>2023-07-05</td>
-            <td>15:00</td>
-            <td>Cardiología</td>
-            <td>Dr. Pérez</td>
+            <td>19-08-2023</td>
+            <td>10:00</td>
+            <td>Psicología</td>
+            <td>Dr. Martinez</td>
             <td>Control de rutina</td>
             <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
           </tr>
           <tr>
-            <td>2023-07-05</td>
-            <td>15:00</td>
+            <td>31-08-2023</td>
+            <td>11:00</td>
             <td>Cardiología</td>
             <td>Dr. Pérez</td>
             <td>Control de rutina</td>

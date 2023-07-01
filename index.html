@@ -40,7 +40,7 @@
             </ul>
           </div>
           <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Logout</button>
           <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
         </div>
       </nav>
@@ -49,35 +49,35 @@
       <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
       <h3>¡50 años cuidando de vos y tu familia!</h3>
     </section>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Login Clinica Coluccio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <section id="modal-login">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clinica</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formulario-login" method="post" enctype="text/plain">
+                <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required />
+                </div>
+                <br />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Entrar!</button>
+              </form>
+            </div>
+            <div class="modal-footer"></div>
           </div>
-          <div class="modal-body">
-            <form id="formulario-login" method="post" enctype="text/plain">
-              <div class="form-group">
-                <label for="username">Usuario</label>
-                <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
-              </div>
-              <br />
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required />
-              </div>
-              <br />
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Entrar!</button>
-            </form>
-          </div>
-          <div class="modal-footer"></div>
         </div>
       </div>
-    </div>
-
+    </section>
     <section id="carousel" class="carousel-section">
       <div id="carouselExampleInterval" class="carousel slide div-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -101,7 +101,6 @@
         </button>
       </div>
     </section>
-
     <section id="obraSociales" class="obra-sociales-section">
       <div>
         <h2>Obras Sociales y Prepagas</h2>

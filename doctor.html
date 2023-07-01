@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item active">
-                <a class="nav-link" href="#inicio">Inicio</a>
+                <a class="nav-link" href="index.html">Inicio</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#turnos">Sus Turnos</a>
@@ -34,7 +34,7 @@
             </ul>
           </div>
           <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Logout</button>
           <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
         </div>
       </nav>
@@ -43,9 +43,38 @@
       <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
       <h3>¡50 años cuidando de vos y tu familia!</h3>
     </section>
+    <section id="modal-login">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clinica</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formulario-login" method="post" enctype="text/plain">
+                <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required />
+                </div>
+                <br />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Entrar!</button>
+              </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="turnos" class="turnos-section">
       <h2 id="titulo-turnos">Turnos de la semana</h2>
-      <div class="container div-turnos">
+      <div id="div-turnos-doctor" class="container div-turnos">
         <ul class="nav nav-tabs" id="diasTabs" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="lunes-tab" data-bs-toggle="tab" data-bs-target="#lunes" type="button" role="tab" aria-controls="lunes" aria-selected="true">Lunes</button>

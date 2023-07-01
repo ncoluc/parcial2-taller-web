@@ -1,3 +1,5 @@
+//FORMULARIO NUEVO TURNO Y FUNCIONALIDAD BOTON
+
 document.addEventListener("DOMContentLoaded", function () {
   const formTurno = document.getElementById("form-turno");
 
@@ -8,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const fecha = document.getElementById("fecha").value;
     const hora = document.getElementById("hora").value;
     const email = document.getElementById("email").value;
-    const observaciones = document.getElementById("observaciones").value;
 
     if (!especialidad || !medico || !fecha || !hora || !email) {
       showMessage("Verifique los datos del turno");
