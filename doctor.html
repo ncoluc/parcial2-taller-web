@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica - Turnos del Doctor</title>
+    <link id="style-page" rel="stylesheet" href="css/styles.css" />
+    <link id="style-page" rel="stylesheet" href="css/doctor.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img class="logo-nav" src="media/iconos/logo.png" alt="Sanatorio Modelo Coluccio" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item active">
+                <a class="nav-link" href="#inicio">Inicio</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#obraSociales">Obra Sociales</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#telefonosUtiles">Telefonos Utiles</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#covid19">Covid 19</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
+        </div>
+      </nav>
+    </header>
+    <section id="inicio" class="intro-section">
+      <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+      <h3>¡50 años cuidando de vos y tu familia!</h3>
+    </section>
+    <section id="turnos" class="turnos-section">
+      <h2 id="titulo-turnos">Turnos de la semana</h2>
+      <div class="container div-turnos">
+        <ul class="nav nav-tabs" id="daysTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="monday-tab" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab" aria-controls="monday" aria-selected="true">Lunes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tuesday-tab" data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab" aria-controls="tuesday" aria-selected="false">Martes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="wednesday-tab" data-bs-toggle="tab" data-bs-target="#wednesday" type="button" role="tab" aria-controls="wednesday" aria-selected="false">Miércoles</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="thursday-tab" data-bs-toggle="tab" data-bs-target="#thursday" type="button" role="tab" aria-controls="thursday" aria-selected="false">Jueves</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="friday-tab" data-bs-toggle="tab" data-bs-target="#friday" type="button" role="tab" aria-controls="friday" aria-selected="false">Viernes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="saturday-tab" data-bs-toggle="tab" data-bs-target="#saturday" type="button" role="tab" aria-controls="saturday" aria-selected="false">Sábado</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="daysContent">
+          <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
+            <div class="day">
+              <h2>Lunes</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
+            <div class="day">
+              <h2>Martes</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Martes</h5>
+                    <div class="card-text">
+                      <p>Horario: 11:00 AM - 12:00 PM</p>
+                      <p>Paciente: María Rodríguez</p>
+                      <p>Observaciones: Realizar análisis de sangre</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
+            <div class="day">
+              <h2>Miércoles</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Miércoles</h5>
+                    <div class="card-text">
+                      <p>Horario: 8:00 AM - 9:00 AM</p>
+                      <p>Paciente: Laura Gómez</p>
+                      <p>Observaciones: Realizar control de presión</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
+            <div class="day">
+              <h2>Jueves</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Jueves</h5>
+                    <div class="card-text">
+                      <p>Horario: 2:00 PM - 3:00 PM</p>
+                      <p>Paciente: Pedro López</p>
+                      <p>Observaciones: Realizar curación</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
+            <div class="day">
+              <h2>Viernes</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Viernes</h5>
+                    <div class="card-text">
+                      <p>Horario: 10:00 AM - 11:00 AM</p>
+                      <p>Paciente: Ana Fernández</p>
+                      <p>Observaciones: Realizar radiografía</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
+            <div class="day">
+              <h2>Sábado</h2>
+              <div class="card-columns">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Sábado</h5>
+                    <div class="card-text">
+                      <p>Horario: 3:00 PM - 4:00 PM</p>
+                      <p>Paciente: Carolina Silva</p>
+                      <p>Observaciones: Realizar extracción de muelas</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Lunes</h5>
+                    <div class="card-text">
+                      <p>Horario: 9:00 AM - 10:00 AM</p>
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contacto" class="row mt-5">
+      <div class="container align-items-center text-center">
+        <div class="row">
+          <div class="col-md-3" style="padding-bottom: 10px">
+            <a href="#inicio">
+              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clinica Modelo Coluccio" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Ubicaciones</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="https://goo.gl/maps/svM5yrpbRXA84Xn49" target="_blank">Lisandro Medina 2285, Caseros</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/iLTGZcGUYWbECRxF9" target="_blank">Río Colorado 1452, Hurlingham</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Contacto</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="tel:+4716-3200">Tel: 4716-3200</a>
+                </li>
+                <li>
+                  <a href="mailto:clinica.coluccio@gmail.com">Mail: clinica.coluccio@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Redes Sociales</h4>
+            <div class="div-footer-lista">
+              <ul>
+                <li>
+                  <a href="https://www.facebook.com/SanatorioModelodeCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/facebook.svg" />Facebook</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/clinicaModeloCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/twitter.svg" />Twitter</a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/modelodecaserosok/" target="_blank"><img class="icon-red-social" src="media/iconos/instagram.svg" />Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

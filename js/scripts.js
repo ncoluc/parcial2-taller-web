@@ -1,3 +1,4 @@
+/*
 function enviarFormulario(event) {
     event.preventDefault();
   
@@ -52,45 +53,48 @@ function enviarFormulario(event) {
     localStorage.setItem("modoOscuroActivadoColuCarsEvent", "false");
     document.getElementById("style-page").href = "css/styles.css";
   }
-  
-  //LOGINN
-  
-  const usuarios = [
-    { username: "pepe", password: "12", nombre: "Pedro Lopez" },
-    { username: "test", password: "123", nombre: "Nicolas Martin" },
-    { username: "nico", password: "1234", nombre: "Juan Perez" },
-  ];
-  
-  function logear(event) {
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-  
-    var usuarioEncontrado = usuarios.find((usuario) => {
-      return usuario.username === username && usuario.password === password;
-    });
-  
-    if (usuarioEncontrado) {
-      var url = "index.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre;
-      window.location.href = url;
-    } else {
-      alert("Credenciales inválidas");
+
+  */
+
+//LOGINN
+
+const usuarios = [
+  { username: "mirtita", password: "123", nombre: "Mirtha Legrand", rol: "paciente" },
+  { username: "house", password: "123", nombre: "Gregory House", rol: "doctor" },
+];
+
+function logear(event) {
+  event.preventDefault();
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  var usuarioEncontrado = usuarios.find((usuario) => {
+    return usuario.username === username && usuario.password === password;
+  });
+
+  if (usuarioEncontrado) {
+    if (usuarioEncontrado.rol === "paciente") {
+      window.location.href = "paciente.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre;
+    } else if (usuarioEncontrado.rol === "doctor") {
+      window.location.href = "doctor.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre;
     }
+  } else {
+    alert("“Usuario incorrecto");
   }
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("formulario-login");
-    if (form !== null) {
-      form.addEventListener("submit", logear);
-    }
-  });
-  
-  var urlParams = new URLSearchParams(window.location.search);
-  var username = urlParams.get("nombreUsuario");
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    if (username) {
-      document.getElementById("titulo-inicio").textContent = "¡Bienvenido " + username + " a " + "Colu Cars Events!";
-    }
-  });
-  
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("formulario-login");
+  if (form !== null) {
+    form.addEventListener("submit", logear);
+  }
+});
+
+var urlParams = new URLSearchParams(window.location.search);
+var nombreDeUsuario = urlParams.get("nombreUsuario");
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (nombreDeUsuario) {
+    document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a " + nombreDeUsuario + " a " + "Clinica Caseros!";
+  }
+});
