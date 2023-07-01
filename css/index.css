@@ -146,6 +146,13 @@ table td {
   box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 1500px) {
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /*
 -------------------------------------- SECTION OBRA SOCIALES --------------------------------------
 */
@@ -198,7 +205,7 @@ table td {
 
   .obra-social-card:hover {
     transform: none !important;
-  }  
+  }
 
   .obra-social-card:hover img {
     transform: none !important;
