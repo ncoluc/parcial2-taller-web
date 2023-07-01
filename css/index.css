@@ -1,0 +1,237 @@
+h2 {
+  font-weight: bold !important;
+  font-size: 40px !important;
+}
+
+/*
+-------------------------------------- SECTION COVID 19 --------------------------------------
+*/
+
+.covid19-section {
+  background-color: rgb(191, 191, 191);
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.div-covid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-covid-info {
+  text-align: center;
+  padding-left: 20px;
+}
+
+.div-covid-info h2 {
+  padding-bottom: 30px;
+}
+
+.div-covid-info h3 {
+  padding-bottom: 20px;
+}
+
+.div-covid-info a {
+  margin-bottom: 20px;
+}
+
+.div-covid-video {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.div-covid-video iframe {
+  width: 550px;
+  height: 310px;
+}
+
+@media screen and (max-width: 767px) {
+  .iframe-en-div {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/*
+-------------------------------------- SECTION TELEFONOS UTILES TABLE --------------------------------------
+*/
+
+.table-telefonos {
+  padding: 50px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.table-telefonos div {
+  display: flex;
+  justify-content: center;
+}
+
+.table-telefonos h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+table {
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-image: linear-gradient(76deg, rgb(182, 201, 221), #59cfc5);
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+table th,
+table td {
+  padding: 4px;
+  border: 1px solid #000000;
+}
+
+table th {
+  font-weight: 700;
+  color: #fff;
+  padding: 10px;
+  background-color: #323d47;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+table td {
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .table-telefonos div {
+    overflow-x: auto;
+    width: 100% !important;
+    margin-left: 0px !important;
+    padding-right: 0px !important;
+    display: block;
+  }
+}
+
+/*
+-------------------------------------- SECTION CAROUSEL --------------------------------------
+*/
+
+.carousel-section {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.carousel-section h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.div-carousel {
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.5);
+}
+
+/*
+-------------------------------------- SECTION OBRA SOCIALES --------------------------------------
+*/
+
+.obra-sociales-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px 0;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.div-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.obra-social-card {
+  width: 300px;
+  margin: 20px;
+  padding: 15px;
+  background-color: #979797;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 610px) {
+  .obra-social-card {
+    width: 300px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: unset;
+    margin-right: unset;
+    background-color: #979797;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .obra-social-card:hover {
+    transform: none !important;
+  }  
+
+  .obra-social-card:hover img {
+    transform: none !important;
+  }
+}
+
+.obra-social-card:hover {
+  transform: translateY(-10px);
+}
+
+.obra-social-card img {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.obra-social-card:hover img {
+  transform: scale(1.05);
+}
+
+.obra-social-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  background-color: rgb(182, 201, 221);
+  border-radius: 10px;
+}
+
+.obra-social-info p {
+  font-size: 16px;
+  font-weight: 300;
+  font-weight: bold;
+}

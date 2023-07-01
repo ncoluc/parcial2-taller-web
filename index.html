@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica Modelo Coluccio</title>
+    <link id="style-page" rel="stylesheet" href="css/styles.css" />
+    <link id="style-page" rel="stylesheet" href="css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body onload="controlarModoEnLocalStorage()">
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img class="logo-nav" src="media/iconos/logo.png" alt="Sanatorio Modelo Coluccio" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item active">
+                <a class="nav-link" href="#inicio">Inicio</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#obraSociales">Obra Sociales</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#telefonosUtiles">Telefonos Utiles</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#covid19">Covid 19</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
+        </div>
+      </nav>
+    </header>
+    <section id="inicio" class="intro-section">
+      <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+      <h3>¡50 años cuidando de vos y tu familia!</h3>
+    </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login Clinica Coluccio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formulario-login" method="post" enctype="text/plain">
+              <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required />
+              </div>
+              <br />
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Entrar!</button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="carousel" class="carousel-section">
+      <div id="carouselExampleInterval" class="carousel slide div-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="8000">
+            <img src="media/imagenes/carousel/carousel-1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+            <img src="media/imagenes/carousel/carousel-2.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+            <img src="media/imagenes/carousel/carousel-3.jpg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="obraSociales" class="obra-sociales-section">
+      <div>
+        <h2>Obras Sociales y Prepagas</h2>
+        <h3>Trabajamos con las 3 obras sociales más conocidas del país.</h3>
+      </div>
+      <div class="div-cards">
+        <div class="obra-social-card">
+          <div>
+            <img src="media/imagenes/cards/osde.png" alt="Logo Osde" />
+            <div class="obra-social-info">
+              <h2>Osde</h2>
+              <p>Sumérgete en el mundo de la salud de calidad con OSDE, la empresa líder en servicios médicos en Argentina. Cobertura integral y personalizada</p>
+            </div>
+          </div>
+          <div>
+            <div>
+              <a href="https://www.osde.com.ar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver información</a>
+            </div>
+          </div>
+        </div>
+        <div class="obra-social-card">
+          <div>
+            <img src="media/imagenes/cards/swiss-medical.png" alt="Logo Swiss Medical" />
+            <div class="obra-social-info">
+              <h2>Swiss Medical</h2>
+              <p>Descubre la excelencia en servicios médicos y el compromiso con el bienestar de Swiss Medical. Líder en salud en Argentina</p>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <a href="https://www.swissmedical.com.ar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver información</a>
+            </div>
+          </div>
+        </div>
+        <div class="obra-social-card">
+          <div>
+            <img src="media/imagenes/cards/galeno.webp" alt="Logo Galeno" />
+            <div class="obra-social-info">
+              <h2>Galeno</h2>
+              <p>En Galeno, nuestro compromiso es tu salud y bienestar. Soluciones integrales y atención de calidad. Expertos en tu cuidado de la salud</p>
+            </div>
+          </div>
+          <div>
+            <div>
+              <a href="https://www.galeno.com.ar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="telefonosUtiles" class="table-telefonos">
+      <h2>Telefonos Utiles</h2>
+      <div>
+        <table>
+          <tr>
+            <th>Servicio</th>
+            <th>Teléfono</th>
+            <th>Días de Atención</th>
+            <th>Horario</th>
+          </tr>
+          <tr>
+            <td>CONMUTADOR</td>
+            <td>4716-3200</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>TURNOS</td>
+            <td>4716-3210</td>
+            <td>Lunes a Viernes, Sábados</td>
+            <td>7:00 a 21:00, 8:00 a 12:00</td>
+          </tr>
+          <tr>
+            <td>LABORATORIO</td>
+            <td>4716-3275</td>
+            <td>Lunes a Viernes</td>
+            <td>7:00 a 17:00</td>
+          </tr>
+          <tr>
+            <td>TURNOS</td>
+            <td>4716-3219</td>
+            <td>Lunes a Viernes</td>
+            <td>7:00 a 21:00</td>
+          </tr>
+          <tr>
+            <td>ECOGRAFIAS</td>
+            <td>4716-3211</td>
+            <td>Lunes a Viernes</td>
+            <td>7:00 a 21:00</td>
+          </tr>
+          <tr>
+            <td>ADMINISTRACIÓN</td>
+            <td>4716-3250</td>
+            <td>Lunes a Viernes</td>
+            <td>8:00 a 18:00</td>
+          </tr>
+          <tr>
+            <td>ASI SALUD TURNOS</td>
+            <td>4716-3260</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>MEDICINA LABORAL</td>
+            <td>4734-7430</td>
+            <td>Lunes a Viernes</td>
+            <td>8:00 a 17:00</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section id="covid19" class="covid19-section">
+      <div class="div-covid">
+        <div class="div-covid-video">
+          <div>
+            <iframe class="iframe-en-div" src="https://www.youtube.com/embed/7dLgqUcG_-Y" title="Video Informativo Covid19" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="div-covid-info">
+          <h2>Covid 19</h2>
+          <h3>Encuentra aquí toda la información y las dudas frecuentes</h3>
+          <a href="https://sanatoriomodelo.com.ar/web/index.php/informacion-y-consultas-covid19" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver información</a>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer id="contacto" class="row mt-5">
+    <div class="container align-items-center text-center">
+      <div class="row">
+        <div class="col-md-3" style="padding-bottom: 10px">
+          <a href="#inicio">
+            <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clinica Modelo Coluccio" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <h4 class="pt-3">Ubicaciones</h4>
+          <div class="div-footer-lista-centrada">
+            <ul>
+              <li>
+                <a href="https://goo.gl/maps/svM5yrpbRXA84Xn49" target="_blank">Lisandro Medina 2285, Caseros</a>
+              </li>
+              <li>
+                <a href="https://goo.gl/maps/iLTGZcGUYWbECRxF9" target="_blank">Río Colorado 1452, Hurlingham</a>
+              </li>
+              <li>
+                <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="pt-3">Contacto</h4>
+          <div class="div-footer-lista-centrada">
+            <ul>
+              <li>
+                <a href="tel:+4716-3200">Tel: 4716-3200</a>
+              </li>
+              <li>
+                <a href="mailto:clinica.coluccio@gmail.com">Mail: clinica.coluccio@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="pt-3">Redes Sociales</h4>
+          <div class="div-footer-lista">
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/SanatorioModelodeCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/facebook.svg" />Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/clinicaModeloCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/twitter.svg" />Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/modelodecaserosok/" target="_blank"><img class="icon-red-social" src="media/iconos/instagram.svg" />Instagram</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
