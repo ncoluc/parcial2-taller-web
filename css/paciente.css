@@ -1,0 +1,77 @@
+.div-tabla p {
+  font-size: 30px;
+  background-color: rgb(204, 133, 133);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+#error-message {
+  margin-top: 10px;
+}
+
+/*
+-------------------------------------- SECTION NUEVO TURNO --------------------------------------
+*/
+
+.div-nuevo-turno {
+  width: 70%;
+  margin: auto;
+  background-color: rgb(161, 161, 161);
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nuevo-turno-section {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.form-group {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .form-group label {
+    display: block;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+  }
+
+  .reservar-turno {
+    margin-top: 10px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .reservar-turno {
+    font-size: 14px;
+  }
+
+  .div-nuevo-turno {
+    width: 100%;
+  }
+}

@@ -74,9 +74,9 @@ function logear(event) {
 
   if (usuarioEncontrado) {
     if (usuarioEncontrado.rol === "paciente") {
-      window.location.href = "paciente.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre;
+      window.location.href = "paciente.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre + "&rol=" + usuarioEncontrado.rol;
     } else if (usuarioEncontrado.rol === "doctor") {
-      window.location.href = "doctor.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre;
+      window.location.href = "doctor.html?usuario=" + usuarioEncontrado.username + "&nombreUsuario=" + usuarioEncontrado.nombre + "&rol=" + usuarioEncontrado.rol;
     }
   } else {
     alert("“Usuario incorrecto");
@@ -92,9 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 var urlParams = new URLSearchParams(window.location.search);
 var nombreDeUsuario = urlParams.get("nombreUsuario");
+var rolUsuario = urlParams.get("rol");
 
 document.addEventListener("DOMContentLoaded", function () {
   if (nombreDeUsuario) {
-    document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a " + nombreDeUsuario + " a " + "Clinica Caseros!";
+    if (rolUsuario === "paciente") {
+      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a " + nombreDeUsuario + " a " + "Clinica Caseros!";
+    } else if (rolUsuario === "doctor") {
+      document.getElementById("titulo-inicio").textContent = "¡Bienvenido/a Dr. " + nombreDeUsuario;
+    }
   }
 });

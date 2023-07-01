@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica - Turnos del paciente</title>
+    <link id="style-page" rel="stylesheet" href="css/styles.css" />
+    <link id="style-page" rel="stylesheet" href="css/paciente.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/paciente.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img class="logo-nav" src="media/iconos/logo.png" alt="Sanatorio Modelo Coluccio" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item active">
+                <a class="nav-link" href="#inicio">Inicio</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#turnos">Mis Turnos</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#nuevo-turno">Nuevos Turnos</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="alert('¡Te has deslogeado. Te redireccionamos a la pagina de inicio!'); window.location.href='index.html'">Logout</button>
+          <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
+        </div>
+      </nav>
+    </header>
+    <section id="inicio" class="intro-section">
+      <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+      <h3>¡50 años cuidando de vos y tu familia!</h3>
+    </section>
+    <section id="turnos" class="tabla-clinica">
+      <h2>Mis Turnos</h2>
+      <div class="div-tabla">
+        <table>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Especialidad</th>
+            <th>Médico</th>
+            <th>Observaciones</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>2023-07-05</td>
+            <td>15:00</td>
+            <td>Cardiología</td>
+            <td>Dr. Pérez</td>
+            <td>Control de rutina</td>
+            <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
+          </tr>
+          <tr>
+            <td>2023-07-05</td>
+            <td>15:00</td>
+            <td>Cardiología</td>
+            <td>Dr. Pérez</td>
+            <td>Control de rutina</td>
+            <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
+          </tr>
+          <tr>
+            <td>2023-07-05</td>
+            <td>15:00</td>
+            <td>Cardiología</td>
+            <td>Dr. Pérez</td>
+            <td>Control de rutina</td>
+            <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
+          </tr>
+          <tr>
+            <td>2023-07-05</td>
+            <td>15:00</td>
+            <td>Cardiología</td>
+            <td>Dr. Pérez</td>
+            <td>Control de rutina</td>
+            <td><button class="btn btn-danger cancelar-turno">Cancelar</button></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section id="nuevo-turno" class="nuevo-turno-section">
+      <h2>Solicitar Nuevo Turno</h2>
+      <div class="div-nuevo-turno">
+        <form id="form-turno">
+          <div class="form-group">
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad" name="especialidad" class="form-control">
+              <option value="">Seleccione una especialidad</option>
+              <option value="cardiologia">Cardiología</option>
+              <option value="dermatologia">Dermatología</option>
+              <option value="oftalmologia">Oftalmología</option>
+              <option value="ginecologia">Ginecología</option>
+              <option value="neurologia">Neurología</option>
+              <option value="ortopedia">Ortopedia</option>
+              <option value="pediatria">Pediatría</option>
+              <option value="psicologia">Psicología</option>
+              <option value="radiologia">Radiología</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="medico">Médico:</label>
+            <select id="medico" name="medico" class="form-control">
+              <option value="">Seleccione un médico</option>
+              <option value="lopez">Dr. House</option>
+              <option value="perez">Dr. Pérez</option>
+              <option value="gomez">Dra. Gómez</option>
+              <option value="lopez">Dr. López</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary reservar-turno">Reservar turno</button>
+            <br />
+            <span id="error-message" class="text-danger"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer id="contacto" class="row mt-5">
+      <div class="container align-items-center text-center">
+        <div class="row">
+          <div class="col-md-3" style="padding-bottom: 10px">
+            <a href="#inicio">
+              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clinica Modelo Coluccio" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Ubicaciones</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="https://goo.gl/maps/svM5yrpbRXA84Xn49" target="_blank">Lisandro Medina 2285, Caseros</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/iLTGZcGUYWbECRxF9" target="_blank">Río Colorado 1452, Hurlingham</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Contacto</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="tel:+4716-3200">Tel: 4716-3200</a>
+                </li>
+                <li>
+                  <a href="mailto:clinica.coluccio@gmail.com">Mail: clinica.coluccio@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Redes Sociales</h4>
+            <div class="div-footer-lista">
+              <ul>
+                <li>
+                  <a href="https://www.facebook.com/SanatorioModelodeCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/facebook.svg" />Facebook</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/clinicaModeloCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/twitter.svg" />Twitter</a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/modelodecaserosok/" target="_blank"><img class="icon-red-social" src="media/iconos/instagram.svg" />Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
