@@ -33,22 +33,28 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Logout</button>
-          <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Salir</button>
         </div>
       </nav>
     </header>
     <section id="inicio" class="intro-section">
-      <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
-      <h3>¡50 años cuidando de vos y tu familia!</h3>
+      <div class="div-intro">
+        <div class="div-titulo-intro">
+          <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+          <h3>¡50 años cuidando de vos y tu familia!</h3>
+        </div>
+        <div class="div-imagen-intro">
+          <img id="imagen-user" src="media/imagenes/fotos-usuarios/house.jpg" class="img-thumbnail" alt="Foto usuario" />
+        </div>
+      </div>
     </section>
     <section id="modal-login">
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clinica</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clínica</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -387,7 +393,7 @@
         <div class="row">
           <div class="col-md-3" style="padding-bottom: 10px">
             <a href="#inicio">
-              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clinica Modelo Coluccio" />
+              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clínica Modelo Coluccio" />
             </a>
           </div>
           <div class="col-md-3">

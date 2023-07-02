@@ -7,8 +7,8 @@ const usuarios = [
 
 function logear(event) {
   event.preventDefault();
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+  const username = obtenerElemento("#username").value;
+  const password = obtenerElemento("#password").value;
 
   const usuarioEncontrado = usuarios.find((usuario) => usuario.username === username && usuario.password === password);
 
@@ -17,7 +17,7 @@ function logear(event) {
     localStorage.setItem("username", usuarioEncontrado.username);
     localStorage.setItem("nombreUsuario", usuarioEncontrado.nombre);
     localStorage.setItem("rol", usuarioEncontrado.rol);
-    const currentPage = window.location.pathname;
+
     if (usuarioEncontrado.rol === "paciente") {
       redireccionar("paciente.html");
     } else if (usuarioEncontrado.rol === "doctor") {
@@ -26,6 +26,10 @@ function logear(event) {
   } else {
     alert("Usuario incorrecto");
   }
+}
+
+function obtenerElemento(consulta) {
+  return document.querySelector(consulta);
 }
 
 function redireccionar(pagina) {
@@ -45,7 +49,7 @@ function actualizarTexto(elemento, texto) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formulario-login");
+  const form = obtenerElemento("#formulario-login");
   if (form !== null) {
     form.addEventListener("submit", logear);
   }
@@ -53,33 +57,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const isUserLogged = localStorage.getItem("isUserLogged");
+  const username = localStorage.getItem("username");
   const nombreDeUsuario = localStorage.getItem("nombreUsuario");
   const rolUsuario = localStorage.getItem("rol");
-  const botonLogin = document.querySelector(".btn-primary.boton-login");
-  const botonLogout = document.querySelector(".btn-danger.boton-login");
+  const botonLogin = obtenerElemento(".btn-primary.boton-login");
+  const botonLogout = obtenerElemento(".btn-danger.boton-login");
+  const divImagenUsuario = obtenerElemento(".div-imagen-intro");
   const currentPage = window.location.pathname;
 
   if (isUserLogged === "true" && nombreDeUsuario && rolUsuario) {
     ocultarElemento(botonLogin);
     mostrarElemento(botonLogout);
-    const tituloInicio = document.getElementById("titulo-inicio");
+    const tituloInicio = obtenerElemento("#titulo-inicio");
+    obtenerElemento("#imagen-user").src = `media/imagenes/fotos-usuarios/${username}.jpg`;
     if (rolUsuario === "paciente") {
-      actualizarTexto(tituloInicio, `¡Bienvenido/a ${nombreDeUsuario} a Clinica Coluccio!`);
+      actualizarTexto(tituloInicio, `¡Bienvenido/a ${nombreDeUsuario} a Clínica Coluccio!`);
 
       if (currentPage.includes("/doctor.html")) {
-        ocultarElemento(document.querySelector("#div-turnos-doctor"));
-        const h2Turnos = document.querySelector("#turnos h2");
+        ocultarElemento(obtenerElemento("#div-turnos-doctor"));
+        const h2Turnos = obtenerElemento("#turnos h2");
         h2Turnos.style.color = "red";
         actualizarTexto(h2Turnos, "Usted no tiene acceso en esta página");
       }
     } else if (rolUsuario === "doctor") {
-      actualizarTexto(tituloInicio, `¡Bienvenido/a Dr. ${nombreDeUsuario} a Clinica Coluccio!`);
+      actualizarTexto(tituloInicio, `¡Bienvenido/a Dr. ${nombreDeUsuario} a Clínica Coluccio!`);
 
       if (currentPage.includes("/paciente.html")) {
-        ocultarElemento(document.querySelector("#turnos .div-tabla"));
-        ocultarElemento(document.querySelector("#nuevo-turno .div-nuevo-turno"));
-        ocultarElemento(document.querySelector("#nuevo-turno h2"));
-        const h2Turnos = document.querySelector("#turnos h2");
+        ocultarElemento(obtenerElemento("#turnos .div-tabla"));
+        ocultarElemento(obtenerElemento("#nuevo-turno .div-nuevo-turno"));
+        ocultarElemento(obtenerElemento("#nuevo-turno h2"));
+        const h2Turnos = obtenerElemento("#turnos h2");
         h2Turnos.style.color = "red";
         actualizarTexto(h2Turnos, "Usted no tiene acceso en esta página");
       }
@@ -87,17 +94,18 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     mostrarElemento(botonLogin);
     ocultarElemento(botonLogout);
+    ocultarElemento(divImagenUsuario);
 
     if (currentPage.includes("/paciente.html")) {
-      ocultarElemento(document.querySelector("#turnos .div-tabla"));
-      ocultarElemento(document.querySelector("#nuevo-turno .div-nuevo-turno"));
-      const h2Turnos = document.querySelector("#turnos h2");
-      const h2NuevosTurnos = document.querySelector("#nuevo-turno h2");
+      ocultarElemento(obtenerElemento("#turnos .div-tabla"));
+      ocultarElemento(obtenerElemento("#nuevo-turno .div-nuevo-turno"));
+      const h2Turnos = obtenerElemento("#turnos h2");
+      const h2NuevosTurnos = obtenerElemento("#nuevo-turno h2");
       actualizarTexto(h2Turnos, "Inicia sesión para ver tus turnos");
       actualizarTexto(h2NuevosTurnos, "Inicia sesión para solicituar un nuevo turno");
     } else if (currentPage.includes("/doctor.html")) {
-      ocultarElemento(document.querySelector("#div-turnos-doctor"));
-      const h2Turnos = document.querySelector("#turnos h2");
+      ocultarElemento(obtenerElemento("#div-turnos-doctor"));
+      const h2Turnos = obtenerElemento("#turnos h2");
       actualizarTexto(h2Turnos, "Inicie sesión para ver sus turnos Dr.");
     }
   }

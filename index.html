@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clinica Modelo Coluccio</title>
+    <title>Clínica Modelo Coluccio</title>
     <link id="style-page" rel="stylesheet" href="css/styles.css" />
     <link id="style-page" rel="stylesheet" href="css/index.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
@@ -26,35 +26,41 @@
                 <a class="nav-link" href="#inicio">Inicio</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#obraSociales">Obra Sociales</a>
+                <a class="nav-link" href="#obraSociales">Obras Sociales</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#telefonosUtiles">Telefonos Utiles</a>
+                <a class="nav-link" href="#telefonosUtiles">Teléfonos Útiles</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#covid19">Covid 19</a>
+                <a class="nav-link" href="#covid19">Covid-19</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#contacto">Contacto</a>
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Logout</button>
-          <a id="botonCambioModo" role="button" onclick="cambiarModo()" aria-expanded="false" value="true"> </a>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Salir</button>
         </div>
       </nav>
     </header>
     <section id="inicio" class="intro-section">
-      <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
-      <h3>¡50 años cuidando de vos y tu familia!</h3>
+      <div class="div-intro">
+        <div class="div-titulo-intro">
+          <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+          <h3>¡50 años cuidando de vos y tu familia!</h3>
+        </div>
+        <div class="div-imagen-intro">
+          <img id="imagen-user" src="media/imagenes/fotos-usuarios/house.jpg" class="img-thumbnail" alt="Foto usuario" />
+        </div>
+      </div>
     </section>
     <section id="modal-login">
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clinica</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clínica</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -109,9 +115,9 @@
       <div class="div-cards">
         <div class="obra-social-card">
           <div>
-            <img src="media/imagenes/cards/osde.png" alt="Logo Osde" />
+            <img src="media/imagenes/cards/osde.png" alt="Logo OSDE" />
             <div class="obra-social-info">
-              <h2>Osde</h2>
+              <h2>OSDE</h2>
               <p>Sumérgete en el mundo de la salud de calidad con OSDE, la empresa líder en servicios médicos en Argentina. Cobertura integral y personalizada</p>
             </div>
           </div>
@@ -153,7 +159,7 @@
       </div>
     </section>
     <section id="telefonosUtiles" class="tabla-clinica">
-      <h2>Telefonos Utiles</h2>
+      <h2>Teléfonos Útiles</h2>
       <div>
         <table>
           <tr>
@@ -217,7 +223,7 @@
       <div class="div-covid">
         <div class="div-covid-video">
           <div>
-            <iframe class="iframe-en-div" src="https://www.youtube.com/embed/7dLgqUcG_-Y" title="Video Informativo Covid19" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="iframe-en-div" src="https://www.youtube.com/embed/7dLgqUcG_-Y" title="Video Informativo Covid-19" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="div-covid-info">
@@ -232,7 +238,7 @@
         <div class="row">
           <div class="col-md-3" style="padding-bottom: 10px">
             <a href="#inicio">
-              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clinica Modelo Coluccio" />
+              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clínica Modelo Coluccio" />
             </a>
           </div>
           <div class="col-md-3">
@@ -246,7 +252,7 @@
                   <a href="https://goo.gl/maps/iLTGZcGUYWbECRxF9" target="_blank">Río Colorado 1452, Hurlingham</a>
                 </li>
                 <li>
-                  <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martin</a>
+                  <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martín</a>
                 </li>
               </ul>
             </div>

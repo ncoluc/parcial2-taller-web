@@ -75,6 +75,23 @@ nav div div ul li {
   font-weight: 300;
 }
 
+.div-intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.div-titulo-intro {
+  display: block;
+}
+
+.div-imagen-intro img {
+  width: 300px;
+  border-radius: 100%;
+}
+
 @media (max-width: 720px) {
   .intro-section h1 {
     font-size: 36px;
