@@ -48,14 +48,7 @@ function actualizarTexto(elemento, texto) {
   elemento.textContent = texto;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = obtenerElemento("#formulario-login");
-  if (form !== null) {
-    form.addEventListener("submit", logear);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+function controlarUsuarioLogeado(){
   const isUserLogged = localStorage.getItem("isUserLogged");
   const username = localStorage.getItem("username");
   const nombreDeUsuario = localStorage.getItem("nombreUsuario");
@@ -109,6 +102,19 @@ document.addEventListener("DOMContentLoaded", function () {
       actualizarTexto(h2Turnos, "Inicie sesión para ver sus turnos Dr.");
     }
   }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = obtenerElemento("#formulario-login");
+  if (form !== null) {
+    form.addEventListener("submit", logear);
+    controlarUsuarioLogeado();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  controlarUsuarioLogeado();
 });
 
 function logoutUsuario() {
