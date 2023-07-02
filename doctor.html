@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica - Turnos del Doctor</title>
+    <link id="style-page" rel="stylesheet" href="css/styles.css" />
+    <link id="style-page" rel="stylesheet" href="css/doctor.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body onload="controlarUsuarioLogeado()">
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img class="logo-nav" src="media/iconos/logo.png" alt="Sanatorio Modelo Coluccio" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#turnos">Sus Turnos</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar</button>
+          <button type="button" class="btn btn-danger boton-login" onclick="logoutUsuario()">Salir</button>
+        </div>
+      </nav>
+    </header>
+    <section id="inicio" class="intro-section">
+      <div class="div-intro">
+        <div class="div-titulo-intro">
+          <h1 id="titulo-inicio">Sanatorio Modelo Coluccio</h1>
+          <h3>¡50 años cuidando de vos y tu familia!</h3>
+        </div>
+        <div class="div-imagen-intro">
+          <img id="imagen-user" src="media/imagenes/fotos-usuarios/house.jpg" class="img-thumbnail" alt="Foto usuario" />
+        </div>
+      </div>
+    </section>
+    <section id="modal-login">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión en Clínica</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formulario-login" method="post" enctype="text/plain">
+                <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required />
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required />
+                </div>
+                <br />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Entrar!</button>
+              </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="turnos" class="turnos-section">
+      <h2 id="titulo-turnos">Turnos de la semana</h2>
+      <div id="div-turnos-doctor" class="container div-turnos">
+        <ul class="nav nav-tabs" id="diasTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="lunes-tab" data-bs-toggle="tab" data-bs-target="#lunes" type="button" role="tab" aria-controls="lunes" aria-selected="true">Lunes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="martes-tab" data-bs-toggle="tab" data-bs-target="#martes" type="button" role="tab" aria-controls="martes" aria-selected="false">Martes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="miercoles-tab" data-bs-toggle="tab" data-bs-target="#miercoles" type="button" role="tab" aria-controls="miercoles" aria-selected="false">Miércoles</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="jueves-tab" data-bs-toggle="tab" data-bs-target="#jueves" type="button" role="tab" aria-controls="jueves" aria-selected="false">Jueves</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="viernes-tab" data-bs-toggle="tab" data-bs-target="#viernes" type="button" role="tab" aria-controls="viernes" aria-selected="false">Viernes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="sabado-tab" data-bs-toggle="tab" data-bs-target="#sabado" type="button" role="tab" aria-controls="sabado" aria-selected="false">Sábado</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="domingo-tab" data-bs-toggle="tab" data-bs-target="#domingo" type="button" role="tab" aria-controls="domingo" aria-selected="false">Domingo</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="diasContent">
+          <div class="tab-pane fade show active" id="lunes" role="tabpanel" aria-labelledby="lunes-tab">
+            <div class="div-dia">
+              <h2>Lunes</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:00-10:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: María Rodríguez</p>
+                      <p>DNI: 12345678</p>
+                      <p>Observaciones: Consulta general</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">10:00-11:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Carlos Gómez</p>
+                      <p>DNI: 87654321</p>
+                      <p>Observaciones: Control de presión arterial</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">12:00-13:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Ana López</p>
+                      <p>DNI: 56789012</p>
+                      <p>Observaciones: Extracción de sangre</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">14:00-14:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: Martín Sánchez</p>
+                      <p>DNI: 34567890</p>
+                      <p>Observaciones: Control de glucemia</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">14:30-15:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Laura Torres</p>
+                      <p>DNI: 90123456</p>
+                      <p>Observaciones: Consulta pediátrica</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="martes" role="tabpanel" aria-labelledby="martes-tab">
+            <div class="div-dia">
+              <h2>Martes</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:00-10:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Alejandro Fernández</p>
+                      <p>DNI: 98765432</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">10:00-11:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Laura González</p>
+                      <p>DNI: 54321678</p>
+                      <p>Observaciones: Tratamiento de alergias</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">12:00-13:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Gabriel Ramírez</p>
+                      <p>DNI: 65432187</p>
+                      <p>Observaciones: Consulta odontológica</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">14:00-14:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: Valentina Silva</p>
+                      <p>DNI: 21876543</p>
+                      <p>Observaciones: Control de presión arterial</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="miercoles" role="tabpanel" aria-labelledby="miercoles-tab">
+            <div class="div-dia">
+              <h2>Miércoles</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:00- 10:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Juan Pérez</p>
+                      <p>Dni: 40430175</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="jueves" role="tabpanel" aria-labelledby="jueves-tab">
+            <div class="div-dia">
+              <h2>Jueves</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:00-10:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Sofia Martinez</p>
+                      <p>DNI: 13579246</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">10:00-11:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Marcos Lopez</p>
+                      <p>DNI: 86420971</p>
+                      <p>Observaciones: Tratamiento de alergias</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">12:00-13:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Carolina Ramirez</p>
+                      <p>DNI: 54687129</p>
+                      <p>Observaciones: Consulta odontológica</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="viernes" role="tabpanel" aria-labelledby="viernes-tab">
+            <div class="div-dia">
+              <h2>Viernes</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:00 - 9:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: Ana Rodríguez</p>
+                      <p>DNI: 12345678</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">9:30 - 10:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Juan Pérez</p>
+                      <p>DNI: 87654321</p>
+                      <p>Observaciones: Tratamiento de alergias</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">10:00 - 10:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: María González</p>
+                      <p>DNI: 56789012</p>
+                      <p>Observaciones: Consulta general</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">10:30 - 11:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Luisa Fernández</p>
+                      <p>DNI: 34567890</p>
+                      <p>Observaciones: Control de presión arterial</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">11:00 - 11:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: Pedro Ramírez</p>
+                      <p>DNI: 90876543</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">11:30 - 12:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Laura Silva</p>
+                      <p>DNI: 23456789</p>
+                      <p>Observaciones: Consulta odontológica</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">12:00 - 12:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: Martín López</p>
+                      <p>DNI: 78901234</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">12:30 - 13:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Carolina Mendoza</p>
+                      <p>DNI: 45678901</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">13:00 - 13:30</h5>
+                    <div class="card-text">
+                      <p>Paciente: José Martínez</p>
+                      <p>DNI: 90123456</p>
+                      <p>Observaciones: Consulta general</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="sabado" role="tabpanel" aria-labelledby="sabado-tab">
+            <div class="div-dia">
+              <h2>Sábado</h2>
+              <div class="div-card-dia">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">11:00- 12:00</h5>
+                    <div class="card-text">
+                      <p>Paciente: Nicolas Martinez</p>
+                      <p>Dni: 50123456</p>
+                      <p>Observaciones: Control de rutina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="domingo" role="tabpanel" aria-labelledby="domingo-tab">
+            <div class="div-dia">
+              <h2>Domingo</h2>
+              <div class="div-card-dia">
+                <p>No tienes turnos hoy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="contacto" class="row mt-5">
+      <div class="container align-items-center text-center">
+        <div class="row">
+          <div class="col-md-3" style="padding-bottom: 10px">
+            <a href="#inicio">
+              <img id="logo-footer" src="media/iconos/logo.png" loading="lazy" alt="Clínica Modelo Coluccio" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Ubicaciones</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="https://goo.gl/maps/svM5yrpbRXA84Xn49" target="_blank">Lisandro Medina 2285, Caseros</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/iLTGZcGUYWbECRxF9" target="_blank">Río Colorado 1452, Hurlingham</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/Pn242MfDMMdYy3fLA" target="_blank">AV. 25 de Mayo 2068, San Martin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Contacto</h4>
+            <div class="div-footer-lista-centrada">
+              <ul>
+                <li>
+                  <a href="tel:+4716-3200">Tel: 4716-3200</a>
+                </li>
+                <li>
+                  <a href="mailto:clinica.coluccio@gmail.com">Mail: clinica.coluccio@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 class="pt-3">Redes Sociales</h4>
+            <div class="div-footer-lista">
+              <ul>
+                <li>
+                  <a href="https://www.facebook.com/SanatorioModelodeCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/facebook.svg" />Facebook</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/clinicaModeloCaseros" target="_blank"><img class="icon-red-social" src="media/iconos/twitter.svg" />Twitter</a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/modelodecaserosok/" target="_blank"><img class="icon-red-social" src="media/iconos/instagram.svg" />Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
